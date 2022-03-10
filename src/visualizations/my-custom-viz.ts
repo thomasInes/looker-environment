@@ -25,6 +25,7 @@ const vis: WhateverNameYouWantVisualization = {
     },
     // Render in response to the data or settings changing
     update(data, element, config, queryResponse) {
+        console.log('TIN DBG >>>>>>> ',1234);
         console.log( 'data', data );
         console.log( 'element', element );
         console.log( 'config', config );
