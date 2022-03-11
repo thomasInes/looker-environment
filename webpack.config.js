@@ -4,7 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 let webpackConfig = {
     entry: {
-        myCustomViz: './src/visualizations/my-custom-viz.ts'
+        myCustomViz: './src/visualizations/my-custom-viz.tsx'
     },
     output: {
         // filename: '[name].js',
@@ -14,13 +14,14 @@ let webpackConfig = {
         libraryTarget: 'umd'
     },
     resolve: {
-        extensions: ['.ts', '.js', '.scss', '.css']
+        extensions: ['.ts','.tsx', '.js','.jsx', '.scss', '.css']
     },
     plugins: [
         new UglifyJSPlugin()
     ],
     module: {
         rules: [
+            { test: /\.tsx$/, loader: 'ts-loader' },
             { test: /\.ts$/, loader: 'ts-loader' },
             { test: /\.css$/, use: [ 'to-string-loader', 'css-loader' ] },
             { test: /\.scss$/,
